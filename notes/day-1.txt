@@ -1,0 +1,112 @@
+# source myenv/bin/activate
+# jupyter notebook
+# firefox
+# 202.94.164.160
+
+
+The protein society
+compbio asia
+
+#Introduction to Biomolecular simulation
+
+wiggling and jiggling
+omics vs MD
+omics = have the data from clinical observation
+Molecular dynamics simulation for all
+
+predict themodynamics quantities
+from micro to micro
+therodynamics partition function
+
+process: experimental plans
+fentoseconds
+Force fields
+AMBER, GROMACS and CHARMM
+NAMD HOOMD, LAMMPS
+MD engine
+
+structure revealed from NMR and Crystal
+Protonation: charging the proteins
+Disulfide : cystin 
+Phosphorylation
+
+.dcd = is the important file	
+.crd = coordinates
+.psf = which attoms are connected || bonding
+
+Ans:
+1. bleow 1 A the hydrogen structure are blind
+2. water A 15 (at least 10)
+3. Alphafold
+
+
+
+Q&A:
+1. RCSB PDB parameters
+2. How do i can trust the mideling
+3. energy confirmations
+
+
+==========
+ondemand.osc.edu
+
+#Steps to write the script
+
+slarms
+=====
+#step-1: shebang initiate
+
+bindin#!/bin/bash
+#SBATCH -J ondemand/sys/myjobs/day-1files (specify the job name)
+#SBATCH --nodes=1 (number of nodes and cores we want to use)
+#SBATCH --time=00:12:00 (the times we want to run the job)
+#SBATCH --exclusive (means, you dont want to access anyone in this node)
+#SBATCH --account=PGS0299 (our project account to pay the job credits 😛)
+
+#step-2 (setting NAMD environemnt by loading modules, run module available in shell to see available modules)
+module load intel/19.0.5
+module load mvapich2/2.3.4
+module load namd/2.13
+
+#step-3 (commands to run)
+run_namd $HOME/day-1-files/namd/step4_equilibration.inp (specify the input file)
+
+#the $HOME directory tipically look like (/users/PGS0299/hasanur069, so if we use the $HOME it means the samepath. you can check the dirctory by run echo $HOME)
+
+
+#then submit the job to the OSC supercomputer by running the following command
+sbatch step4.sub
+
+
+commands:
+file extracts - tar vxzf [filename]
+file size - ls -lh *.dcd
+
+#we do not have to mention the ouput file directory where the
+#output file will generate. it'll generate the file in the current directory
+
+#watch the mds file
+squeue -u hasanur069
+
+#output file
+go to the parent directory the look for the .dcd file (trajectory file [binary file]). 
+If the .dcd file not exists then there have some error.
+
+.xst is for analysis
+
+equilibration.inp 
+dcdfreq = the femtosec, picosec and nanosec
+
+str = special parameters in there.
+
+na = nucleic acid
+carb = carbohydrate
+
+dont calculate the atomic energy of the 1st 4th atoms.
+
+
+how do i convert the steps to femtosec or nanosec?
+
+the molecular dynamics simulaiton generate temprature when it starts
+
+differnt steps, components, temperaturess.
