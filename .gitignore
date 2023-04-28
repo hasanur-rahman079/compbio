@@ -1,6 +1,8 @@
-# Data folder
-/projects/ficus-hispida/data*
+# Data and figures folder
+*data
+*raw-figures
 
 # jupyter notebook checkpoints qnd figures
 *.ipynb_checkpoints
 *.png
+
