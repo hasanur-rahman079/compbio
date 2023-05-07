@@ -6,10 +6,10 @@ Go to the folder that have the out.cms trajectory file. You can check the existi
 
 Then run the script-
 
-where:-
-xx-out.cms=simulaiton out file
-Y=GPU
-YY=The simulation frames gap
+where:- </br>
+xx-out.cms=simulaiton out file </br>
+Y=GPU </br>
+YY=The simulation frames gap </br>
 Z=Number of prime subjobs to create (Make sure Z>Y, or Z=Y)
 
 ```bash
